@@ -45,6 +45,6 @@ public class RemoverInterruptorUseCase {
     private void ProcurarRelacionamentos(Interruptor interruptor) {
         boolean isInterruptorRelatedToAmbiente = listarAmbientesUseCase.findItemByNome(interruptor.getNome()).isPresent();
         if (isInterruptorRelatedToAmbiente)
-            throw new ItemRelatedToAmbienteException("Impossível deletar interruptor enquanto há ambientes usando ele");
+            throw new ItemRelatedToAmbienteException("Impossível deletar este interruptor enquanto há ambientes usando ele");
     }
 }
