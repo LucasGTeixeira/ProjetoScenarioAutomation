@@ -6,12 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ambiente {
+    private Integer id;
     private String nome;
     private List<ItemAmbiente> itens;
 
     public Ambiente(String nome) {
         this.nome = nome;
         this.setItens(new ArrayList<>());
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

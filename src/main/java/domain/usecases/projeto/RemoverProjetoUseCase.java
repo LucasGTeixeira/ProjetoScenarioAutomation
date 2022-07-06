@@ -3,20 +3,20 @@ package domain.usecases.projeto;
 import domain.entities.projeto.Projeto;
 import domain.usecases.utils.exceptions.EntityNotFoundException;
 
-public class RemoverProjetoUsecase {
+public class RemoverProjetoUseCase {
     private final ProjetoDAO projetoDAO;
-    private final ListarProjetoUsecase listarProjetoUsecase;
+    private final ListarProjetosUseCase listarProjetosUsecase;
 
-    public RemoverProjetoUsecase(ProjetoDAO projetoDAO, ListarProjetoUsecase listarProjetoUsecase) {
+    public RemoverProjetoUseCase(ProjetoDAO projetoDAO, ListarProjetosUseCase listarProjetosUsecase) {
         this.projetoDAO = projetoDAO;
-        this.listarProjetoUsecase = listarProjetoUsecase;
+        this.listarProjetosUsecase = listarProjetosUsecase;
     }
 
     public boolean delete(Projeto projeto){
         ProjetoValidator.validarProjeto(projeto);
 
         String nomeProjeto = projeto.getNome();
-        boolean nomeProjetoNotFound = listarProjetoUsecase.findByNome(nomeProjeto).isEmpty();
+        boolean nomeProjetoNotFound = listarProjetosUsecase.findByNome(nomeProjeto).isEmpty();
         if(nomeProjetoNotFound)
             throw new EntityNotFoundException("Nome do projeto não foi encontrado no sistema");
 
@@ -27,7 +27,7 @@ public class RemoverProjetoUsecase {
         if (id == null)
             throw new IllegalArgumentException("id não pode ser nulo");
 
-        boolean idProjetoNotFound = listarProjetoUsecase.findOne(id).isEmpty();
+        boolean idProjetoNotFound = listarProjetosUsecase.findOne(id).isEmpty();
         if(idProjetoNotFound)
             throw new EntityNotFoundException("id do projeto não foi encontrado no sistema");
 

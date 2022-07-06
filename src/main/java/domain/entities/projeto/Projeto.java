@@ -5,6 +5,7 @@ import domain.entities.ambiente.Ambiente;
 import java.util.List;
 
 public class Projeto {
+    private Integer id;
     private String nome;
     private List<Ambiente> ambientes;
 
@@ -15,6 +16,14 @@ public class Projeto {
     public Projeto(String nome, List<Ambiente> ambientes) {
         this.nome = nome;
         this.ambientes = ambientes;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {

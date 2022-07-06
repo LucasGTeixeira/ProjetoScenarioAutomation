@@ -19,8 +19,6 @@ public class ProjetoValidator extends Validator<Projeto> {
     }
 
     static void validarProjeto(Projeto projeto) {
-        if (projeto == null)
-            throw new IllegalArgumentException("Projeto não pode ser nulo");
         Validator<Projeto> validator = new ProjetoValidator();
         Notification notification = validator.validate(projeto);
         if(notification.hasErros())

@@ -5,18 +5,18 @@ import domain.usecases.utils.exceptions.EntityAlreadyExistsException;
 
 public class AdicionarProjetoUseCase {
     private final ProjetoDAO projetoDAO;
-    private final ListarProjetoUsecase listarProjetoUsecase;
+    private final ListarProjetosUseCase listarProjetosUsecase;
 
-    public AdicionarProjetoUseCase(ProjetoDAO projetoDAO, ListarProjetoUsecase listarProjetoUsecase) {
+    public AdicionarProjetoUseCase(ProjetoDAO projetoDAO, ListarProjetosUseCase listarProjetosUsecase) {
         this.projetoDAO = projetoDAO;
-        this.listarProjetoUsecase = listarProjetoUsecase;
+        this.listarProjetosUsecase = listarProjetosUsecase;
     }
 
     public Integer insert(Projeto projeto){
         ProjetoValidator.validarProjeto(projeto);
 
         String nomeProjeto = projeto.getNome();
-        boolean nomeProjetoAlreadyExists = listarProjetoUsecase.findByNome(nomeProjeto).isPresent();
+        boolean nomeProjetoAlreadyExists = listarProjetosUsecase.findByNome(nomeProjeto).isPresent();
         if(nomeProjetoAlreadyExists)
             throw new EntityAlreadyExistsException("Nome de projeto já existe no sistema. Escolha outro");
 
