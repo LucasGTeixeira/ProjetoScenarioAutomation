@@ -1,6 +1,7 @@
 package domain.usecases.ambiente;
 
 import domain.entities.ambiente.Ambiente;
+import domain.entities.item.ItemAmbiente;
 import domain.usecases.utils.Validator;
 
 import java.util.List;
@@ -27,6 +28,12 @@ public class ListarAmbientesUseCase {
        if (Validator.nullOrEmpty(nome))
            throw new IllegalArgumentException("nome não pode ser nulo ou vazio");
        return ambienteDAO.findByNome(nome);
+    }
+
+    public Optional<ItemAmbiente> findItemByNome(String nomeItem){
+        if(Validator.nullOrEmpty(nomeItem))
+            throw new IllegalArgumentException("item não encontrado no ambiente");
+        return ambienteDAO.findItemByNome(nomeItem);
     }
 
 }

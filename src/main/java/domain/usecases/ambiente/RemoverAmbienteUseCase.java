@@ -29,7 +29,7 @@ public class RemoverAmbienteUseCase {
         return ambienteDAO.delete(ambiente);
     }
 
-    public boolean deleteByKey(Integer id){
+    public boolean delete(Integer id){
         if(id == null)
             throw new IllegalArgumentException("id não pode ser nulo");
 
