@@ -15,6 +15,12 @@ public class Ambiente {
         this.setItens(new ArrayList<>());
     }
 
+    public Ambiente(Integer id, String nome, List<ItemAmbiente> itens) {
+        this.id = id;
+        this.nome = nome;
+        this.itens = itens;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -41,6 +47,10 @@ public class Ambiente {
 
     @Override
     public String toString() {
-        return nome;
+        return "Ambiente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", itens=" + itens +
+                '}';
     }
 }

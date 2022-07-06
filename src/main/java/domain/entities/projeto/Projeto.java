@@ -13,7 +13,8 @@ public class Projeto {
         this.nome = nome;
     }
 
-    public Projeto(String nome, List<Ambiente> ambientes) {
+    public Projeto(Integer id, String nome, List<Ambiente> ambientes) {
+        this.id = id;
         this.nome = nome;
         this.ambientes = ambientes;
     }
@@ -44,6 +45,10 @@ public class Projeto {
 
     @Override
     public String toString() {
-        return nome;
+        return "Projeto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", ambientes=" + ambientes +
+                '}';
     }
 }

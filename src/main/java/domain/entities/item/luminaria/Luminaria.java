@@ -13,6 +13,13 @@ public class Luminaria extends ItemAmbiente {
         super(nome);
     }
 
+    public Luminaria(String nome, boolean status, Interruptor canal, SensorMovimento sensor) {
+        super(nome);
+        this.status = status;
+        this.canal = canal;
+        this.sensor = sensor;
+    }
+
     public Interruptor getCanal() {
         return canal;
     }

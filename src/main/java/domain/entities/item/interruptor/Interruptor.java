@@ -12,6 +12,16 @@ public class Interruptor extends ItemAmbiente {
         super(nome);
     }
 
+    public Interruptor(Integer id, String nome, List<Luminaria> modulos) {
+        super(id, nome);
+        this.modulos = modulos;
+    }
+
+    public Interruptor(String nome, List<Luminaria> modulos) {
+        super(nome);
+        this.modulos = modulos;
+    }
+
     public List<Luminaria> getModulos() {
         return modulos;
     }
@@ -22,6 +32,8 @@ public class Interruptor extends ItemAmbiente {
 
     @Override
     public String toString() {
-        return "Modulos Interruptor: " + modulos;
+        return "Interruptor{" +
+                "modulos=" + modulos +
+                '}';
     }
 }

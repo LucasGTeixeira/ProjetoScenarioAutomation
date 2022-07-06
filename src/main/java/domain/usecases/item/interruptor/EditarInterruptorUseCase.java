@@ -29,6 +29,6 @@ public class EditarInterruptorUseCase {
 
     private boolean LuminariasLimitExceeded(Interruptor interruptor){
         int qtnLuminarias = interruptor.getModulos().size();
-        return qtnLuminarias >= 4;
+        return qtnLuminarias > 4;
     }
 }

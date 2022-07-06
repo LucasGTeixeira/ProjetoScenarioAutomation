@@ -4,6 +4,11 @@ public abstract class ItemAmbiente {
     private Integer id;
     private String nome;
 
+    public ItemAmbiente(Integer id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public ItemAmbiente(String nome) {
         this.nome = nome;
     }
