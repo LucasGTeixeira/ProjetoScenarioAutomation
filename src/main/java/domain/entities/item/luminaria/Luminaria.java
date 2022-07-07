@@ -4,7 +4,9 @@ import domain.entities.item.ItemAmbiente;
 import domain.entities.item.interruptor.Interruptor;
 import domain.entities.item.sensorMovimento.SensorMovimento;
 
-public class Luminaria extends ItemAmbiente {
+import java.io.Serializable;
+
+public class Luminaria extends ItemAmbiente implements Serializable {
     private boolean status;
     private Interruptor canal;
     private SensorMovimento sensor;
