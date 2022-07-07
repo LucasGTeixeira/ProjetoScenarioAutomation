@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller.MenuInicialController">
+   <children>
+      <AnchorPane layoutY="-7.0" prefHeight="376.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="190.0" fitWidth="352.0" layoutX="116.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="/JavaFX_Logo.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <MenuBar layoutY="1.0" prefHeight="27.0" prefWidth="144.0">
+        <menus>
+          <Menu fx:id="menuItemCadastros" mnemonicParsing="false" text="Gerenciamentos">
+            <items>
+              <MenuItem fx:id="menuItemCadastrosCliente" mnemonicParsing="false" text="Projetos" />
+                  <MenuItem fx:id="menuItemCadastrosCampanha" mnemonicParsing="false" text="Ambientes" />
+                  <MenuItem fx:id="menuItemCadastrosEmpresa" mnemonicParsing="false" text="Luminarias" />
+                  <MenuItem fx:id="menuItemCadastrosProduto" mnemonicParsing="false" text="Interruptores" />
+                  <MenuItem fx:id="menuItemCadastrosProduto1" mnemonicParsing="false" text="Sensores" />
+            </items>
+          </Menu>
+        </menus>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </MenuBar>
+      <Label layoutX="151.0" layoutY="-1.0" opacity="0.66" prefHeight="32.0" prefWidth="408.0" text="Sistema Teste Scenario Automation" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
