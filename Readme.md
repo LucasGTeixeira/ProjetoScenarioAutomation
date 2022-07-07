@@ -23,3 +23,6 @@
 - `projeto:` Local onde é realizado o CRUD dos projetos
 - `utils:` Classes úteis para a validação, notificação, comunicação para persistência de dados assim como exceptions do sistema
 
+Em resumo, implementei os requisitos funcionais e não funcionais que eram essenciais ao sistema e dei início ao processo de criação de telas e sockets da lista de requisitos desejáveis.
+
+Para os sockets implementei uma estratégia de usar usecases de controle assim como uma classe utilitária para transportar objetos através dos sockets. Enquanto para a interface gráfica fiz apenas as telas e separei pacotes para armazenar controladores que processam essas informações coletadas nas views devido ao tempo de desenvolvimento.
