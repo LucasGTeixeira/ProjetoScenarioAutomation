@@ -2,7 +2,11 @@
 - `applicaton:` 
     - `main:` Pacote onde ficam os arquivos de aplicação
   do sistema responsáveis por carregar as instâncias dos objetos do dominio
-    - `repository:` Repartição que encapsula as oprações de persistência da aplicação
+    - `repository:` Repartição que encapsula as oprações de pseudo-persistência da aplicação usando hashMap
+    - `controller:` Pacote responsável por armazenar os controllers que ligam o dominio da aplicação 
+  com a view
+    - `sockets:` Armazena as classes usadas durante o processo de socket do sistema, composto por uma classe de comando, um cliente e um servidor
+    - `view:` Onde fica a incialização das cenas implementadas no pacote Resources 
 - `domain:` 
     - `entities:` Pacote onde são encontradas as entidades do sistema que serão usadas nos casos de uso
     - `usecases:` Pacote composto por todos os casos de uso do sistema, fazendo todas as operações necessárias sem que seja necessário
