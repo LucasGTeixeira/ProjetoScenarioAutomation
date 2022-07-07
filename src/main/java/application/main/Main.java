@@ -103,18 +103,31 @@ public class Main {
         Integer sens2 = adicionarSensorMovimentoUseCase.insert(s2);
         Integer sens3 = adicionarSensorMovimentoUseCase.insert(s3);
 
-        Optional<Projeto> findProjetoPreUpdate = listarProjetosUseCase.findOne(proj1);
-        findProjetoPreUpdate.ifPresent(System.out::println);
-        List<Ambiente> ambientesProjeto = new ArrayList<>();
-        ambientesProjeto.add(a1);
-        ambientesProjeto.add(a2);
-        ambientesProjeto.add(a3);
-        Projeto projetoUpdate = new Projeto(1, "Casa1", ambientesProjeto);
-        editarProjetoUseCase.update(projetoUpdate);
-        Optional<Projeto> findProjetoPosUpdate = listarProjetosUseCase.findOne(proj1);
-        findProjetoPosUpdate.ifPresent(System.out::println);
+        alocaAmbientesEmProjeto(a1, a2, a3, proj1);
 
 
+        alocaItensEmAmbiente(l1, l2, l3, l4, i1, i2, i3, s1, s2, s3, amb1);
+
+
+        alocaLuminariasEmInterruptor(l1, l2, l3, l4, l5, mod1);
+    }
+
+    private static void alocaLuminariasEmInterruptor(Luminaria l1, Luminaria l2, Luminaria l3, Luminaria l4, Luminaria l5, Integer mod1) {
+        Optional<Interruptor> interruptorOptionalPre = listarInterruptorUseCase.findOne(mod1);
+        interruptorOptionalPre.ifPresent(System.out::println);
+        List<Luminaria> luminarias = new ArrayList<>();
+        luminarias.add(l1);
+        luminarias.add(l2);
+        luminarias.add(l3);
+        luminarias.add(l4);
+        //luminarias.add(l5); trigger LuminariasLimitReachedException
+        Interruptor interruptorUpdate = new Interruptor(1, "mod1", luminarias);
+        editarInterruptorUseCase.update(interruptorUpdate);
+        Optional<Interruptor> interruptorOptionalPost = listarInterruptorUseCase.findOne(mod1);
+        interruptorOptionalPost.ifPresent(System.out::println);
+    }
+
+    private static void alocaItensEmAmbiente(Luminaria l1, Luminaria l2, Luminaria l3, Luminaria l4, Interruptor i1, Interruptor i2, Interruptor i3, SensorMovimento s1, SensorMovimento s2, SensorMovimento s3, Integer amb1) {
         Optional<Ambiente> findAmbientePreUpdate = listarAmbientesUseCase.findOne(amb1);
         findAmbientePreUpdate.ifPresent(System.out::println);
         List<ItemAmbiente> itensAmbiente = new ArrayList<>();
@@ -128,24 +141,24 @@ public class Main {
         itensAmbiente.add(s3);
         itensAmbiente.add(i2);
         itensAmbiente.add(i3);
-        //itensAmbiente.add(i4);
+        //itensAmbiente.add(i4); trigger em ItemLimitReachedException
         Ambiente ambienteUpdate = new Ambiente(1, "Sala", itensAmbiente);
         editarAmbienteUseCase.update(ambienteUpdate);
         Optional<Ambiente> findAmbientePosUpdate = listarAmbientesUseCase.findOne(amb1);
         findAmbientePosUpdate.ifPresent(System.out::println);
+    }
 
-
-        Optional<Interruptor> interruptorOptionalPre = listarInterruptorUseCase.findOne(mod1);
-        interruptorOptionalPre.ifPresent(System.out::println);
-        List<Luminaria> luminarias = new ArrayList<>();
-        luminarias.add(l1);
-        luminarias.add(l2);
-        luminarias.add(l3);
-        luminarias.add(l4);
-        Interruptor interruptorUpdate = new Interruptor(1, "mod1", luminarias);
-        editarInterruptorUseCase.update(interruptorUpdate);
-        Optional<Interruptor> interruptorOptionalPost = listarInterruptorUseCase.findOne(mod1);
-        interruptorOptionalPost.ifPresent(System.out::println);
+    private static void alocaAmbientesEmProjeto(Ambiente a1, Ambiente a2, Ambiente a3, Integer proj1) {
+        Optional<Projeto> findProjetoPreUpdate = listarProjetosUseCase.findOne(proj1);
+        findProjetoPreUpdate.ifPresent(System.out::println);
+        List<Ambiente> ambientesProjeto = new ArrayList<>();
+        ambientesProjeto.add(a1);
+        ambientesProjeto.add(a2);
+        ambientesProjeto.add(a3);
+        Projeto projetoUpdate = new Projeto(1, "Casa1", ambientesProjeto);
+        editarProjetoUseCase.update(projetoUpdate);
+        Optional<Projeto> findProjetoPosUpdate = listarProjetosUseCase.findOne(proj1);
+        findProjetoPosUpdate.ifPresent(System.out::println);
     }
 
     private static void injecaoDeDependencia() {
